@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fontColor {
+            color: red;
+            background-color: #0FF;
+            width: 200px;
+        }
+
+        .title {
+            font-weight: 700;
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="template">
+        <!-- 对象语法{'active '} -->
+        <!-- 对象里面可以有多个键值对 -->
+        <div v-bind:class="{'fontColor':isTrue,'title':isTrue}">
+            哈哈哈哈哈哈哈
+        </div>
+        <button @click="toggle">点击切换字体颜色</button>
+    </template>
+</body>
+<script src="../../JavaScript/vue.js"></script>
+<script>
+    const app = Vue.createApp({
+        template: `#template`,
+        data: function () {
+            return {
+                isTrue: true,
+                active: 'fontColor',
+            }
+        },
+        methods: {
+            toggle: function () {
+                this.isTrue = !this.isTrue;
+            }
+        },
+    }).mount("#app");
+</script>
+
+</html>

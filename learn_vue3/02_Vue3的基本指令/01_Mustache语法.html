@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="template">
+        <div>
+            <!-- 插值语法的基本使用 -->
+            <div>{{count}}</div>
+            <!-- 插值语法里面也可以是一个表达式 -->
+            <div>{{count+count}}</div>
+            <!-- 插值语法还可以调用函数 -->
+            <!-- 插值语法还可以使用计算属性 -->
+            <!-- 插值语法还可以使用三元运算符 -->
+        </div>
+    </template>
+</body>
+<script src="../../JavaScript/vue.js"></script>
+<script>
+    const app = Vue.createApp({
+        template: `#template`,
+        data: function () {
+            return {
+                Message: "Hello Vue3",
+                count: 10,
+            }
+        },
+    }).mount("#app");
+</script>
+
+</html>
