@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="template">
+        <div :style="{color:'red','font-size':'20px'}">哈哈哈哈哈哈哈哈</div>
+        <div :style="{color:'#0ff',fontSize:'30px'}">qweqwe</div>
+        <!-- 指定一个data的属性值，并且数据类型是一个对象 -->
+        <div :style="styleObj">test</div>
+        <!-- 直接调用一个方法，返回值是一个对象 -->
+        <div :style="getStyleObj()">test methods</div>
+    </template>
+</body>
+<script src="../../JavaScript/vue.js"></script>
+<script>
+    const app = Vue.createApp({
+        template: `#template`,
+        data: function () {
+            return {
+                styleObj: {
+                    color: 'red',
+                    fontSize: '40px',
+                }
+            };
+        },
+        methods: {
+            getStyleObj: function () {
+                return {
+                    color: 'red',
+                    fontSize: '40px',
+                }
+            }
+        },
+    }).mount("#app");
+</script>
+
+</html>
