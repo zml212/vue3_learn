@@ -11,16 +11,20 @@
 <body>
     <div id="app"></div>
     <template id="template">
-        <div></div>
+        <div :[name]="styleObj">hhhhhh</div>
     </template>
 </body>
-<script src=""></script>
+<script src="../../JavaScript/vue.js"></script>
 <script>
     const app = Vue.createApp({
         template: `#template`,
         data: function () {
             return {
-
+                name: 'style',
+                styleObj: {
+                    color: 'red',
+                    fontSize: '40px',
+                },
             };
         },
         methods: {
