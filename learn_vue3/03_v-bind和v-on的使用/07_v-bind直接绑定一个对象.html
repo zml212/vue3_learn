@@ -11,21 +11,25 @@
 <body>
     <div id="app"></div>
     <template id="template">
-        <div></div>
+        <div v-bind="info">哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
+        <div :="info">34</div>
     </template>
+
 </body>
 <script src="../../javascript/vue.js"></script>
 <script>
     const app = Vue.createApp({
-        template: `#template`,
+        template: '#template',
         data: function () {
             return {
-                
+                info: {
+                    name: '海绵宝宝',
+                    age: 18,
+                    address: '比奇堡',
+                }
             };
         },
-        methods: {
-            
-        }
+        methods: {}
     }).mount('#app');
 </script>
 

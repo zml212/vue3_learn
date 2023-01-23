@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .mouseMove {
+            width: 200px;
+            height: 200px;
+            background-color: #ededed;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="template">
+        <div>{{count}}</div>
+        <!-- 完整写法 -->
+        <button v-on:click="log">点我加一</button>
+        <div class="mouseMove" v-on:mousemove="mouseMove">div</div>
+        <!-- 简单写法 -->
+        <button @click="log">点我加一</button>
+        <!-- 绑定一个表达式 -->
+        <button @click="this.count++">点我加一</button>
+        <!-- 绑定一个对象 -->
+        <div class="mouseMove" v-on="{click:log,mousemove:mouseMove}">点击我</div>
+    </template>
+</body>
+<script src=" ../../javascript/vue.js"></script>
+<script>
+    const app = Vue.createApp({
+        template: `#template`,
+        data: function () {
+            return {
+                count: 0,
+            };
+        },
+        methods: {
+            log: function () {
+                this.count++;
+                console.log(this.count);
+            },
+            mouseMove: function () {
+                this.count++;
+                console.log('鼠标移动了');
+            }
+        }
+    }).mount('#app');
+</script>
+
+</html>
