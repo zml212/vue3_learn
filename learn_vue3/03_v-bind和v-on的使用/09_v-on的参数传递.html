@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="template">
+        <!-- 默认传入event对象，可以在方法中获取 -->
+        <button @click="btn1Click">按钮1</button>
+        <!-- $event可以获取到时间发生时的事件对象 -->
+        <button @click="btn2Click($event,'海绵宝宝')">按钮2</button>
+    </template>
+</body>
+<script src="../../javascript/vue.js"></script>
+<script>
+    const app = Vue.createApp({
+        template: `#template`,
+        data: function () {
+            return {
+
+            };
+        },
+        methods: {
+            btn1Click: function (event) {
+                console.log(event);
+            },
+            btn2Click: function (event, name) {
+                console.log(event);
+                console.log(name);
+            }
+        }
+    }).mount('#app');
+</script>
+
+</html>
