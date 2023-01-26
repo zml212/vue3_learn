@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="template">
+        <h2>{{getFullName()}}</h2>
+        <h2>{{getFullName()}}</h2>
+        <h2>{{getFullName()}}</h2>
+        <h2>{{getName}}</h2>
+        <h2>{{getName}}</h2>
+        <h2>{{getName}}</h2>
+        <button @click="upDate()">修改firstName</button>
+    </template>
+</body>
+<script src="../../javascript/vue.js"></script>
+<script>
+    const app = Vue.createApp({
+        template: `#template`,
+        data: function () {
+            return {
+                firstName: '海绵',
+                lastName: '宝宝',
+                fullName: '',
+                score: 80,
+                result: '',
+                message: 'Hello World',
+                reMsg: '',
+            };
+        },
+        methods: {
+            getFullName: function () {
+                console.log('getFullName');
+                return this.firstName + this.lastName;
+            },
+            upDate: function () {
+                this.firstName = this.firstName + '1';
+            }
+        },
+        computed: {
+            // getName的getter方法
+            // getName: function () {
+            //     console.log('getName');
+            //     return this.firstName + this.lastName;
+            // },
+
+            // 完整写法
+            getName: {
+                get: function () {
+                    console.log('getName');
+                    return this.firstName + this.lastName;
+                },
+                set: function (newValue) {
+                    console.log(newValue);
+                }
+            }
+
+        }
+    }).mount('#app');
+</script>
+
+</html>
