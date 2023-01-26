@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="template">
+        <ul>
+            <li v-for="item in arr">{{item}}</li>
+        </ul>
+        <button @click="add">点我添加元素</button>
+    </template>
+</body>
+<script src="../../javascript/vue.js"></script>
+<script>
+    const app = Vue.createApp({
+        template: `#template`,
+        data: function () {
+            return {
+                arr: [1, 2, 3, 4, 5]
+            };
+        },
+        methods: {
+            add: function () {
+                this.arr.push(5);
+            }
+        }
+    }).mount('#app');
+</script>
+
+</html>
