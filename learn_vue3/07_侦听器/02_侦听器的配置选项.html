@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="template">
+        <div v-for="(item,key,index) in info">{{key}}--{{item}}</div>
+        <button @click="changeName()">改变name</button>
+    </template>
+</body>
+<script src="../../javascript/vue.js"></script>
+<script>
+    const app = Vue.createApp({
+        template: `#template`,
+        data: function () {
+            return {
+                info: {
+                    name: '海绵宝宝',
+                    age: 18,
+                }
+            };
+        },
+        methods: {
+            changeName: function () {
+                this.info.name = '派大星';
+            }
+        },
+        watch: {
+            // 默认情况下，侦听器只会侦听数据本省的改变，比如整个对象发生了改变，而对象内部的某个键值对发生改变，此时监听不到
+            // info: function (newValue, oldValue) {
+            //     console.log('info发生了变化');
+            //     console.log('newValue', newValue);
+            //     console.log('oldValue', oldValue);
+            // }
+            info: {
+                handler: function (newValue, oldValue) {
+                    console.log('info发生了变化', newValue, oldValue);
+                },
+                deep: true, // 深度侦听，可以监听到对象内部的键值对发生改变
+                immediate: true, // 立即执行一次
+            }
+        }
+    }).mount('#app');
+</script>
+
+</html>
