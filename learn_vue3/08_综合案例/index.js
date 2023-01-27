@@ -61,6 +61,9 @@ const vueApp = {
             }
             return price;
         },
+        getSymbols: function () {
+            return '￥';
+        }
     }
 };
 const app = Vue.createApp(vueApp).mount('#app');
