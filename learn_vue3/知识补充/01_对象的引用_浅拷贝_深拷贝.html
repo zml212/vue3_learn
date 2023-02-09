@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 对象的引用赋值 -->
+    <script>
+        // 对象是引用类型
+        const info = {
+            name: '海绵宝宝',
+            age: 18,
+        }
+        const obj = info;
+        obj.name = '派大星';
+        console.log(obj.name);// 派大星
+    </script>
+    <!-- 对象的浅拷贝 -->
+    <script>
+        const info1 = {
+            name: '海绵宝宝',
+            age: 18,
+        }
+        const obj1 = Object.assign({}, info1);
+        info1.name = '派大星';
+        console.log(obj1.name);// 海绵宝宝
+    </script>
+</body>
+
+</html>

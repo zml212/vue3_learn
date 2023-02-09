@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="template">
+        <!-- 文本框 -->
+        <label for="info">
+            自我介绍：
+            <textarea name="my" id="q" cols="30" rows="10" v-model="info"></textarea>
+        </label>
+        <div>{{info}}</div>
+
+        <!-- 单选框 -->
+        <label for="radio">
+            <input type="radio" v-model="isAgree">同意协议
+        </label>
+        <div>是否同意：{{isAgree}}</div>
+
+        <!-- 多选框 -->
+        <h2>你的爱好：</h2>
+        <label for="a">
+            <input type="checkbox" v-model="hobbies" value="篮球">篮球
+        </label>
+        <label for="b">
+            <input type="checkbox" v-model="hobbies" value="足球">足球
+        </label>
+        <label for="c">
+            <input type="checkbox" v-model="hobbies" value="羽毛球">羽毛球
+        </label>
+        <h4>结果：{{hobbies}}</h4>
+        <!-- 下拉表单 -->
+        <label for="select">
+            <select name="shuiguo" id="sg" v-model="shuiguo">
+                <option value="juzi">橘子</option>
+                <option value="taozi">水蜜桃</option>
+                <option value="xiangjiao">香蕉</option>
+            </select>
+            <h4>{{shuiguo}}</h4>
+        </label>
+    </template>
+</body>
+<script src="../../javascript/vue.js"></script>
+<script>
+    const app = Vue.createApp({
+        template: `#template`,
+        data: function () {
+            return {
+                info: 'hello world!',
+                isAgree: false,
+                hobbies: [],
+                shuiguo: [],
+            };
+        },
+        methods: {
+
+        }
+    }).mount('#app');
+</script>
+
+</html>
