@@ -20,7 +20,8 @@
 
         <!-- 单选框 -->
         <label for="radio">
-            <input type="radio" v-model="isAgree">同意协议
+            <input type="radio" v-model="isAgree" name="1">同意协议
+            <input type="radio" v-model="isAgree" name="1">不同意协议
         </label>
         <div>是否同意：{{isAgree}}</div>
 
@@ -45,6 +46,11 @@
             </select>
             <h4>{{shuiguo}}</h4>
         </label>
+        <!-- <label for="test">
+            <select name="test" id="test">
+                <option v-for="item in list" value="item.value">{{item.name}}</option>
+            </select>
+        </label> -->
     </template>
 </body>
 <script src="../../javascript/vue.js"></script>

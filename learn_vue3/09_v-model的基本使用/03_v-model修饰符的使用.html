@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="template">
+        <!-- lazy修饰符 -->
+        <input type="text" v-model.lazy="text">
+        <div>result:{{text}}</div>
+
+        <!-- number修饰符 -->
+        <input type="text" v-model.number="number">
+        <div>result:{{number}}</div>
+        <button @click="showType">查看数据类型</button>
+    </template>
+</body>
+<script src="../../javascript/vue.js"></script>
+<script>
+    const app = Vue.createApp({
+        template: `#template`,
+        data: function () {
+            return {
+                text: '',
+                number: 0,
+            };
+        },
+        methods: {
+            showType() {
+                console.log(this.number, typeof this.number);
+            }
+        }
+    }).mount('#app');
+</script>
+
+</html>
