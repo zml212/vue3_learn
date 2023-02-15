@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="template">
+        <input type="text" v-model="message">
+        <h2>{{message}}</h2>
+
+        <h2>{{title}}</h2>
+        <button @click="showMsg()">点击</button>
+    </template>
+</body>
+<script src="../../javascript/vue.js"></script>
+<script>
+    const app = Vue.createApp({
+        template: `#template`,
+        data: function () {
+            return {
+                message: 'hello',
+                title: '注册全局组件'
+            };
+        },
+        methods: {
+            showMsg(){
+                alert('hello');
+            }
+        }
+    }).mount('#app');
+</script>
+
+</html>

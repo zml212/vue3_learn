@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="template">
+        <div>{{msg}}</div>
+        <my-component></my-component>
+    </template>
+    
+    
+</body>
+<script src="../../javascript/vue.js"></script>
+<script>
+    const app ={
+        template: `#template`,
+        data: function () {
+            return {
+                msg:'哈哈哈哈哈哈哈',
+            };
+        },
+        methods: {
+            
+        }
+    };
+    const App = Vue.createApp(app);
+    // 使用app注册一个全局组件
+    // app.component(组件名称，组件对象);
+
+    App.component('my-component',{
+        template: `<h2>我是componted组件</h2>`
+    });
+    App.mount('#app');
+</script>
+
+</html>
