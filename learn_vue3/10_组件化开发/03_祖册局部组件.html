@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="template">
+        <component-a></component-a>
+    </template>
+    <template id="component-a">
+        <h2>我是{{msg}}组件</h2>
+    </template>
+</body>
+<script src="../../javascript/vue.js"></script>
+<script>
+    const app = {
+        template: "#template",
+        // 注册局部组件
+        components:{
+            // key:value
+            // key:组件名称
+            // value组件对象
+            "component-a":{
+                template:"#component-a",
+                data: function () {
+                    return {
+                        msg:"局部",
+                    }
+                }
+            }
+        }
+    };
+    const App = Vue.createApp(app);
+    App.mount("#app");
+</script>
+
+</html>
