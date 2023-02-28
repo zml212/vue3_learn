@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
 // import './style.css'
-import App from './06_非父子组件之间的通信/App.vue';
+import App from './09_具名插槽的使用/App.vue';
 
 createApp(App).mount('#app')
