@@ -1,9 +1,12 @@
 <template>
-  <div>我是Home组件</div>
+  <div>我是Home组件{{ age }}--{{ name }}</div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "home",
+  props: ["name", "age"],
+};
 </script>
 
 <style scoped>

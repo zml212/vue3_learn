@@ -2,15 +2,9 @@
   <button v-for="(item, index) in tags" :key="index" @click="clickBtn(item)">
     {{ item }}
   </button>
-  <template v-if="clickbtn == 'Home'">
-    <Home></Home>
-  </template>
-  <template v-else-if="clickbtn == 'About'">
-    <About></About>
-  </template>
-  <template v-else>
-    <Categories></Categories>
-  </template>
+  <!-- <home></home> -->
+  <!-- <about></about> -->
+  <component :is="clickbtn" name="海绵宝宝" age="12"></component>
 </template>
 
 <script>
@@ -28,12 +22,14 @@ export default {
   data() {
     return {
       tags: ["Home", "About", "Categories"],
-      clickbtn: "1",
+      clickbtn: "Home",
     };
   },
   methods: {
     clickBtn(item) {
       this.clickBtn = item;
+      console.log(item);
+      console.log(this.clickBtn);
     },
   },
 };
